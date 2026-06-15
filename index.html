@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <script id="anywhere_book_now_script" type="text/javascript" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+
   <style>
     :root {
       --bg: #f8f1e7;
@@ -19,8 +21,6 @@
       --gold: #c99552;
       --gold-dark: #9a6b35;
       --leaf: #5c7256;
-      --cream: rgba(255,255,255,.72);
-      --glass: rgba(255,255,255,.58);
       --line: rgba(48,36,28,.12);
       --shadow: 0 22px 70px rgba(65, 43, 25, .16);
       --radius: 28px;
@@ -164,6 +164,19 @@
     .btn-ghost:hover {
       background: rgba(255,255,255,.28);
       transform: translateY(-3px);
+    }
+
+    #Anywhere_button_iframe {
+      min-height: 52px;
+      min-width: 142px;
+      box-shadow: 0 18px 35px rgba(0,0,0,.26);
+      transition: transform .28s ease, box-shadow .28s ease, opacity .28s ease;
+    }
+
+    #Anywhere_button_iframe:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 45px rgba(0,0,0,.34);
+      opacity: .92;
     }
 
     .nav {
@@ -347,6 +360,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .hero-stats {
@@ -1067,6 +1081,12 @@
         align-items: stretch;
       }
 
+      #Anywhere_button_iframe,
+      .hero-actions .btn,
+      .booking-card .btn {
+        width: 100%;
+      }
+
       .hero-stats {
         grid-template-columns: 1fr;
         margin-top: 36px;
@@ -1182,7 +1202,13 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#booking">Book Now</a>
+          <button
+            style="background-color: #000; color: #fff; border: none; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer;"
+            id="Anywhere_button_iframe"
+            class="anywhere-book-now-button"
+            data-booking-url="https://yongwmng.setmore.com"
+            data-new-tab="false"
+          >Book now</button>
           <a class="btn btn-ghost" href="#services">View Services</a>
         </div>
 
@@ -1204,8 +1230,8 @@
     </div>
 
     <aside class="floating-card" aria-label="Booking reminder" data-parallax>
-      <b>Call to reserve your time</b>
-      <p>Same-day appointments may be available. Please call ahead for the smoothest visit.</p>
+      <b>Book online or call ahead</b>
+      <p>Same-day appointments may be available. Please reserve ahead for the smoothest visit.</p>
     </aside>
   </header>
 
@@ -1278,7 +1304,7 @@
 
         <div class="services-grid">
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Swedish massage images">
+            <div class="carousel">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU" alt="Swedish massage" />
               <img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Relaxing body massage" />
               <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Spa body work" />
@@ -1296,7 +1322,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Thai massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/736x/21/8f/4c/218f4cd988ca278667bd28ff54a577ff.jpg" alt="Thai massage body work" />
               <img src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" alt="Assisted body massage" />
               <img src="https://i.pinimg.com/736x/f6/33/48/f6334826491861572c8e532a6a099cdc.jpg" alt="Body work session" />
@@ -1314,7 +1340,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Deep tissue massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" alt="Deep tissue massage" />
               <img src="https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg" alt="Focused deep tissue massage" />
               <img src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg" alt="Deep pressure massage" />
@@ -1332,7 +1358,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Therapeutic massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/736x/e6/0b/e7/e60be71086090d2d3f2737b2291242a9.jpg" alt="Therapeutic body massage" />
               <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Therapeutic massage care" />
               <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Restorative body work" />
@@ -1350,7 +1376,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Four hands massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/736x/09/31/eb/0931ebab4602ec51313b49b72bb10c1e.jpg" alt="Four hands massage" />
               <img src="https://i.pinimg.com/736x/a6/b4/26/a6b4261509788cc843fafcac56d38c51.jpg" alt="Four hands body work" />
               <img src="https://i.pinimg.com/1200x/2b/81/ad/2b81ad4a2b574b076d5676db9ba13418.jpg" alt="Four hands massage session" />
@@ -1367,7 +1393,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Chair massage image">
+            <div class="carousel">
               <img src="https://i.pinimg.com/736x/f1/ee/df/f1eedfc8c7b5322308d56bda63212a19.jpg" alt="Chair massage" />
             </div>
             <div class="service-body">
@@ -1384,7 +1410,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Foot massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Foot massage" />
               <img src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" alt="Foot reflexology" />
               <img src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg" alt="Relaxing foot massage" />
@@ -1402,7 +1428,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Luxury package images">
+            <div class="carousel">
               <img src="https://images.squarespace-cdn.com/content/v1/5d5f2058a79cbf000111652a/1586842536251-IY8XEBZ4JINBCSKZKAHT/FaceMassage.jpg" alt="Facial cleansing package" />
               <img src="https://i.pinimg.com/1200x/84/cd/b7/84cdb7509c5bacdc80bdf1336985d900.jpg" alt="Relaxing facial care" />
               <img src="https://i.pinimg.com/1200x/df/fe/bd/dffebdc4792665f4680cdfb0480fd95c.jpg" alt="Facial spa package" />
@@ -1418,7 +1444,7 @@
           </article>
 
           <article class="service-card reveal">
-            <div class="carousel" aria-label="Kang Bao massage images">
+            <div class="carousel">
               <img src="https://i.pinimg.com/1200x/6a/a8/16/6aa81653401306ff6509eeea39b0d422.jpg" alt="Foot and back massage" />
               <img src="https://i.pinimg.com/736x/19/1e/83/191e837a24d9e5efd7f015539b78c373.jpg" alt="Foot massage package" />
               <img src="https://i.pinimg.com/736x/d2/08/0e/d2080e371f664c11f134eb291883c1dc.jpg" alt="Relaxing foot service" />
@@ -1461,10 +1487,11 @@
     <section class="booking" id="booking" data-section-parallax>
       <div class="container">
         <div class="booking-card reveal">
-          <span class="eyebrow">Book Your Visit</span>
+          <span class="eyebrow">Booking</span>
           <h2>Ready to feel restored?</h2>
           <p>
-            Call Yong Foot Spa to reserve your massage time. Walk-ins may be available, but calling ahead helps us prepare the calmest experience for you.
+            Use the Book Now button at the top of the page to reserve online, or call Yong Foot Spa directly.
+            Walk-ins may be available, but booking ahead helps us prepare the calmest experience for you.
           </p>
           <a class="btn btn-primary" href="tel:4697859718">Call 469-785-9718</a>
 
