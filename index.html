@@ -19,11 +19,11 @@
       --ink: #30241c;
       --muted: #7a6a5e;
       --gold: #c99552;
+      --gold-light: #f4d19a;
       --gold-dark: #9a6b35;
       --leaf: #5c7256;
       --line: rgba(48,36,28,.12);
       --shadow: 0 22px 70px rgba(65, 43, 25, .16);
-      --radius: 28px;
     }
 
     * {
@@ -144,7 +144,7 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #f4d19a, var(--gold));
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
       color: #2f2116;
       box-shadow: 0 18px 35px rgba(201,149,82,.36);
     }
@@ -166,17 +166,36 @@
       transform: translateY(-3px);
     }
 
-    #Anywhere_button_iframe {
-      min-height: 52px;
-      min-width: 142px;
-      box-shadow: 0 18px 35px rgba(0,0,0,.26);
-      transition: transform .28s ease, box-shadow .28s ease, opacity .28s ease;
+    .book-now-button {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 52px !important;
+      min-width: 150px !important;
+      padding: 0 26px !important;
+      border: 1px solid rgba(255,255,255,.35) !important;
+      border-radius: 999px !important;
+      background: linear-gradient(135deg, #f8dcad 0%, #c99552 52%, #9a6b35 100%) !important;
+      color: #2f2116 !important;
+      font-size: 15px !important;
+      font-weight: 900 !important;
+      letter-spacing: .02em !important;
+      cursor: pointer !important;
+      box-shadow: 0 18px 35px rgba(201,149,82,.36), inset 0 1px 0 rgba(255,255,255,.45) !important;
+      transition: transform .28s ease, box-shadow .28s ease, filter .28s ease !important;
+      font-family: "Inter", sans-serif !important;
+      text-transform: none !important;
     }
 
-    #Anywhere_button_iframe:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 45px rgba(0,0,0,.34);
-      opacity: .92;
+    .book-now-button:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 24px 45px rgba(201,149,82,.46), inset 0 1px 0 rgba(255,255,255,.5) !important;
+      filter: brightness(1.04) !important;
+    }
+
+    .book-now-button.light {
+      border-color: rgba(48,36,28,.08) !important;
+      box-shadow: 0 18px 35px rgba(201,149,82,.26), inset 0 1px 0 rgba(255,255,255,.45) !important;
     }
 
     .nav {
@@ -751,6 +770,19 @@
       margin: 18px 0 28px;
     }
 
+    .booking-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .booking-phone {
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      padding: 12px 0;
+    }
+
     .booking-info {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1076,15 +1108,20 @@
         padding-top: 86px;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .booking-actions {
         flex-direction: column;
         align-items: stretch;
       }
 
-      #Anywhere_button_iframe,
+      .book-now-button,
       .hero-actions .btn,
       .booking-card .btn {
-        width: 100%;
+        width: 100% !important;
+      }
+
+      .booking-phone {
+        text-align: center;
       }
 
       .hero-stats {
@@ -1203,12 +1240,12 @@
 
         <div class="hero-actions">
           <button
-            style="background-color: #000; color: #fff; border: none; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer;"
             id="Anywhere_button_iframe"
-            class="anywhere-book-now-button"
+            class="anywhere-book-now-button book-now-button"
             data-booking-url="https://yongwmng.setmore.com"
             data-new-tab="false"
-          >Book now</button>
+            type="button"
+          >Book Now</button>
           <a class="btn btn-ghost" href="#services">View Services</a>
         </div>
 
@@ -1490,10 +1527,20 @@
           <span class="eyebrow">Booking</span>
           <h2>Ready to feel restored?</h2>
           <p>
-            Use the Book Now button at the top of the page to reserve online, or call Yong Foot Spa directly.
+            Reserve online with Book Now, or call Yong Foot Spa directly if you have questions before scheduling.
             Walk-ins may be available, but booking ahead helps us prepare the calmest experience for you.
           </p>
-          <a class="btn btn-primary" href="tel:4697859718">Call 469-785-9718</a>
+
+          <div class="booking-actions">
+            <button
+              id="Anywhere_button_iframe_booking"
+              class="anywhere-book-now-button book-now-button"
+              data-booking-url="https://yongwmng.setmore.com"
+              data-new-tab="false"
+              type="button"
+            >Book Now</button>
+            <a class="booking-phone" href="tel:4697859718">Call: 469-785-9718</a>
+          </div>
 
           <div class="booking-info">
             <div>
@@ -1531,7 +1578,6 @@
           <div class="review"><div class="stars">★★★★★</div><p>“I booked a deep tissue massage for tight back muscles and left feeling much more relaxed.”</p><strong>— Emily W.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“Great place for a quick chair massage. Convenient, peaceful, and the pricing is easy to understand.”</p><strong>— Daniel K.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“The spa felt private and soothing. I appreciated the quiet room and the calm pace.”</p><strong>— Jennifer L.</strong></div>
-
           <div class="review"><div class="stars">★★★★★</div><p>“The atmosphere was calm from the moment I walked in. My shoulders felt lighter after the session.”</p><strong>— Amanda R.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“Very clean, quiet, and professional. The foot massage was exactly what I needed after a long week.”</p><strong>— Marcus T.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“I booked a deep tissue massage for tight back muscles and left feeling much more relaxed.”</p><strong>— Emily W.</strong></div>
@@ -1545,7 +1591,6 @@
           <div class="review"><div class="stars">★★★★★</div><p>“I loved the add-on options. The foot scrub made the whole visit feel extra special.”</p><strong>— Rachel N.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“Good location, easy parking, and a peaceful room. I will definitely return.”</p><strong>— Chris B.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“The four hands massage felt luxurious and completely immersive. Perfect for a reset day.”</p><strong>— Natalie S.</strong></div>
-
           <div class="review"><div class="stars">★★★★★</div><p>“I chose the Swedish massage and it was deeply relaxing without feeling rushed.”</p><strong>— Sophia M.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“The Kang Bao combo was a great balance of foot relaxation and back relief.”</p><strong>— Kevin P.</strong></div>
           <div class="review"><div class="stars">★★★★★</div><p>“I loved the add-on options. The foot scrub made the whole visit feel extra special.”</p><strong>— Rachel N.</strong></div>
@@ -1687,7 +1732,6 @@
 
   <script>
     const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
     const navItems = document.querySelectorAll(".nav-links a");
     const revealItems = document.querySelectorAll(".reveal");
     const parallaxItems = document.querySelectorAll("[data-parallax]");
