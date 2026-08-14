@@ -716,6 +716,45 @@
       margin-top: 10px;
     }
 
+    .addon-promo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(226,247,235,.96), rgba(255,248,231,.98));
+      border: 1px solid rgba(36,137,82,.24);
+      box-shadow: 0 14px 34px rgba(36,137,82,.10);
+    }
+
+    .addon-promo-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: #1f8a52;
+      color: #fff;
+      font-size: 1.35rem;
+      box-shadow: 0 10px 24px rgba(31,138,82,.24);
+    }
+
+    .addon-promo strong {
+      display: block;
+      color: #146c3f;
+      font-size: 1.08rem;
+      font-weight: 900;
+      letter-spacing: .01em;
+    }
+
+    .addon-promo p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     .addon-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -723,7 +762,9 @@
     }
 
     .addon-item {
+      position: relative;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 14px;
       padding: 14px 16px;
@@ -731,10 +772,54 @@
       background: rgba(248,241,231,.86);
       border: 1px solid rgba(48,36,28,.07);
       font-weight: 800;
+      overflow: hidden;
     }
 
-    .addon-item span {
+    .addon-item.free-gift {
+      background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(235,249,241,.96));
+      border-color: rgba(31,138,82,.24);
+      box-shadow: inset 4px 0 0 #1f8a52, 0 10px 24px rgba(31,138,82,.07);
+    }
+
+    .addon-name {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .addon-price-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .addon-original-price {
       color: var(--muted);
+      font-size: .9rem;
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-decoration-color: #b24444;
+      opacity: .82;
+      white-space: nowrap;
+    }
+
+    .free-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #18834b, #25a565);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 8px 18px rgba(31,138,82,.24);
     }
 
     .booking {
@@ -1496,21 +1581,53 @@
 
         <div class="add-ons reveal">
           <div class="addon-intro">
-            <span class="eyebrow">Enhancements</span>
-            <h3>Add-On Services</h3>
-            <p>Personalize your session with focused spa enhancements for extra comfort, refreshment, and care.</p>
+            <span class="eyebrow">Complimentary Enhancements</span>
+            <h3>Free Add-On Gifts</h3>
+            <p>Enjoy these spa enhancements as complimentary gifts. Original menu prices are still shown so you can see the value of each free add-on.</p>
           </div>
 
           <div class="addon-table">
+            <div class="addon-promo" role="note" aria-label="Free add-on gift promotion">
+              <div class="addon-promo-icon" aria-hidden="true">🎁</div>
+              <div>
+                <strong>FREE GIFT — Original Value Shown</strong>
+                <p>Every service below keeps its regular price visible, with a clear FREE GIFT label.</p>
+              </div>
+            </div>
+
             <div class="addon-list">
-              <div class="addon-item"><span>CBD</span><b>$10</b></div>
-              <div class="addon-item"><span>Cupping</span><b>$20</b></div>
-              <div class="addon-item"><span>Foot Scrub</span><b>$10</b></div>
-              <div class="addon-item"><span>Body Scrub</span><b>$20</b></div>
-              <div class="addon-item"><span>Facial Mask</span><b>$10</b></div>
-              <div class="addon-item"><span>Hand Mask</span><b>$10</b></div>
-              <div class="addon-item"><span>Foot Mask</span><b>$10</b></div>
-              <div class="addon-item"><span>Eye Mask</span><b>$5</b></div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">CBD</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$10</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Cupping</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$20</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Foot Scrub</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$10</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Body Scrub</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$20</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Facial Mask</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$10</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Hand Mask</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$10</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Foot Mask</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$10</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
+              <div class="addon-item free-gift">
+                <span class="addon-name">Eye Mask</span>
+                <div class="addon-price-wrap"><s class="addon-original-price">$5</s><strong class="free-badge">FREE GIFT</strong></div>
+              </div>
             </div>
           </div>
         </div>
